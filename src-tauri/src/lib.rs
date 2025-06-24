@@ -120,6 +120,7 @@ pub fn run() {
             reader: Arc::new(AsyncMutex::new(BufReader::new(reader))),
         })
         .plugin(tauri_plugin_opener::init())
+        .plugin(tauri_plugin_hwinfo::init())
         .invoke_handler(tauri::generate_handler![
             greet,
             async_write_to_pty,
