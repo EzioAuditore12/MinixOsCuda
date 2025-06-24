@@ -57,7 +57,7 @@ export default function App(){
       <CustomTitleBar/>
      <div className="grid grid-cols-2 place-content-center gap-y-3 mt-[40px] relative"> 
      <TerminalRenderer/>
-     <div className="flex justify-center items-center flex-col">
+     <div className="flex justify-center items-center flex-col gap-y-2">
      <CpuInfo
      cpuTime={cpu_time}
      sizeMb={ramSizeInfo.sizeMb}
@@ -65,9 +65,6 @@ export default function App(){
      model={cpuInfo.model}
      maxFrequency={cpuInfo.maxFrequency}
      threads={cpuInfo.threads}
-     />
-     <RamSizeInfo
-     sizeMb={ramSizeInfo.sizeMb}
      />
      <GpuInfo
      gpuTime={gpu_time}

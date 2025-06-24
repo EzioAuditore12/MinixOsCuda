@@ -1,4 +1,3 @@
-
 use portable_pty::{native_pty_system, CommandBuilder, PtyPair, PtySize};
 use std::{
     io::{BufRead, BufReader, Read, Write},
@@ -25,7 +24,11 @@ struct AppState {
 // create a shell and add to it the $TERM env variable so we can use clear and other commands
 async fn async_create_shell(state: State<'_, AppState>) -> Result<(), String> {
     #[cfg(target_os = "windows")]
-    let mut cmd = CommandBuilder::new("powershell.exe");
+    let mut cmd = {
+        let mut cmd = CommandBuilder::new("wsl.exe");
+        cmd.args(&["-d", "Ubuntu-24.04"]);
+        cmd
+    };
 
     #[cfg(not(target_os = "windows"))]
     let mut cmd = CommandBuilder::new("bash");
@@ -45,6 +48,10 @@ async fn async_create_shell(state: State<'_, AppState>) -> Result<(), String> {
         .slave
         .spawn_command(cmd)
         .map_err(|err| err.to_string())?;
+
+    // Run a command automatically after the shell starts
+    let command = "cd ~/Process-CUDA/Final-Files/Final-Files\n";
+    write!(state.writer.lock().await, "{}", command).map_err(|e| e.to_string())?;
 
     thread::spawn(move || {
         let status = child.wait().unwrap();
