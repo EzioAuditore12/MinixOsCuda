@@ -13,6 +13,7 @@ import { CpuInfo, type CpuInfoProps } from "./cpu-info";
 import { RamSizeInfo,type RamSizeProps } from "./ram-info";
 import { GpuInfo,type GpuInfoProps } from "./gpu-info";
 import { gpu_time,cpu_time } from "./stats/result";
+import { ChartAreaInteractive } from "./components/ui/area-chart";
 
 function TerminalRenderer() {
   useEffect(() => {
@@ -75,6 +76,9 @@ export default function App(){
      vramMb={gpuInfo.vramMb}
      />
      </div>
+     <ChartAreaInteractive
+     className="col-span-2"
+     />
     </div>
     </ThemeProvider>
   )

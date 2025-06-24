@@ -50,7 +50,7 @@ async fn async_create_shell(state: State<'_, AppState>) -> Result<(), String> {
         .map_err(|err| err.to_string())?;
 
     // Run a command automatically after the shell starts
-    let command = "cd ~/Process-CUDA/Final-Files/Final-Files\n";
+    let command = "cd ~/s\n";
     write!(state.writer.lock().await, "{}", command).map_err(|e| e.to_string())?;
 
     thread::spawn(move || {

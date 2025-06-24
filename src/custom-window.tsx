@@ -1,6 +1,7 @@
 import { X, Expand, Minimize2, Shrink } from 'lucide-react';
 import { getCurrentWindow } from '@tauri-apps/api/window';
 import { useState, useEffect } from 'react';
+import { ModeToggle } from './components/theme-toggle';
 
 export default function CustomTitleBar() {
     const [isMaximized, setIsMaximized] = useState(false);
@@ -27,7 +28,8 @@ export default function CustomTitleBar() {
                 data-tauri-drag-region
                 className="fixed top-0 left-0 right-0 h-10 bg-gray-100 dark:bg-zinc-900 flex justify-center items-center border-b border-gray-200 dark:border-zinc-800 z-[50px]"
             >
-                <p className="text-sm select-none text-red-500">Alya Speaks In Russian</p>
+                <ModeToggle className='absolute left-0'/>
+                <p className="text-sm select-none text-cyan-500">CPU and GPU Process Schedular Operating</p>
                 <div className="absolute right-0 flex items-center gap-x-1 px-2">
                     <button
                         className='p-1.5 rounded-md hover:bg-gray-200 dark:hover:bg-zinc-700'
