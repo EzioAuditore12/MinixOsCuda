@@ -26,7 +26,7 @@ export default function CustomTitleBar() {
         <>
             <div
                 data-tauri-drag-region
-                className="fixed top-0 left-0 right-0 h-10 bg-gray-100 dark:bg-zinc-900 flex justify-center items-center border-b border-gray-200 dark:border-zinc-800 z-[50px]"
+                className="fixed top-0 left-0 right-0 h-10 bg-gray-100 dark:bg-zinc-900 flex justify-center items-center border-b border-gray-200 dark:border-zinc-800 z-[1000]"
             >
                 <ModeToggle className='absolute left-0'/>
                 <p className="text-sm select-none text-cyan-500">CPU and GPU Process Schedular Operating</p>
