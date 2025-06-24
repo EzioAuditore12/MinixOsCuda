@@ -25,7 +25,7 @@ export default function CustomTitleBar() {
         <>
             <div
                 data-tauri-drag-region
-                className="fixed top-0 left-0 right-0 h-10 bg-gray-100 dark:bg-zinc-900 flex justify-center items-center border-b border-gray-200 dark:border-zinc-800"
+                className="fixed top-0 left-0 right-0 h-10 bg-gray-100 dark:bg-zinc-900 flex justify-center items-center border-b border-gray-200 dark:border-zinc-800 z-[50px]"
             >
                 <p className="text-sm select-none text-red-500">Alya Speaks In Russian</p>
                 <div className="absolute right-0 flex items-center gap-x-1 px-2">
